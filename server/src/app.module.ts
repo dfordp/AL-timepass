@@ -5,6 +5,7 @@ import stripeConfig from './config/stripe.config';
 import { ConfigModule } from '@nestjs/config';
 import { StripeController } from './stripe/stripe.controller';
 import { StripeService } from './stripe/stripe.service';
+import { RedisService } from './redis/redis.service';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -12,6 +13,6 @@ import { StripeService } from './stripe/stripe.service';
     }),
   ],
   controllers: [AppController, StripeController],
-  providers: [AppService, StripeService],
+  providers: [AppService, StripeService, RedisService],
 })
 export class AppModule {}
