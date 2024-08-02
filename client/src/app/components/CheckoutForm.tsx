@@ -2,6 +2,7 @@
 
 import { Button } from '@/components/ui/button';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import axios from 'axios';
 import { useState } from 'react';
 
 
@@ -15,10 +16,15 @@ const CheckoutForm = () => {
     event.preventDefault();
     setLoading(true);
 
+    const data = { "amount" : 5};
+
+    const secret = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/stripe/create-payment-intent`,data);
+
+    const paymentSecret = secret.data.clientSecret;
     //@ts-ignore
     const { error, paymentIntent } = await stripe.confirmCardPayment(
             //@ts-ignore
-    process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY,
+      paymentSecret,
       {
         payment_method: {
                 //@ts-ignore
