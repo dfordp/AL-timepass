@@ -51,6 +51,8 @@ REDIS_URI = (shared in email)
 npm start
 ```
 
-Things I couldn't add
-(Planned to containerize both the instances and and run them in from a single docker run command , tried to utilize various payment gateways but most of them required a specific businesses id to work with and lastly planned to add an email comfirmation which would be sent post the transaction providing a receipt based on the state of execution of the transaction. )
+Things I couldn't add in the current time frame
+
+
+(Planned to containerize both the instances and and run them in from a single docker run command , tried to utilize various payment gateways but most of them required a specific businesses id to work with , unit testing using jest and lastly planned to add an email comfirmation which would be sent post the transaction providing a receipt based on the state of execution of the transaction. )
 
